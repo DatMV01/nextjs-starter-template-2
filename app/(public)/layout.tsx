@@ -1,6 +1,6 @@
 "use client";
 
-import { Footer, Header, Sidebar } from "@/components/layout";
+import { Sidebar } from "@/components/layout";
 import { useSidebarStore, useStoreHydration } from "@/features/sidebar";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +27,8 @@ export default function PublicLayout({
     <>
       <aside
         className={cn(
-          "absolute top-0 z-20",
+          "hidden lg:block",
+          "absolute top-0 left-0 z-20",
           "w-80 h-screen",
           "transition-[width] ease-linear duration-300",
           getOpenState() ? styles.expandedWidth : styles.collapsedWidth,
