@@ -1,56 +1,38 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { SidebarLabel, SidebarMenuItems, SidebarToggle, useSidebarStore, useStoreHydration } from "@/features/sidebar";
 import { cn } from "@/lib/utils";
-import React from "react";
-import { ScrollArea } from "../ui/scroll-area";
+import { LogOut, PanelsTopLeft } from "lucide-react";
+import Link from "next/link";
 
-interface Props {
-  ariaLabel?: string;
-}
+function Sidebar() {
+  const getOpenState = useStoreHydration(useSidebarStore, (state) => state.getOpenState);
+  if (getOpenState == undefined) return null;
 
-const Menuitems = Array.from({ length: 50 }).map((_, i, a) => {
-  const dev = {
-    border: false,
-  };
+  const isDevBorder = false;
+  const headerHeight = "h-14";
 
+  const sectionClass = cn("flex items-center justify-center", headerHeight);
   return (
-    <li
-      key={i}
-      className={cn(
-        "flex",
-        "items-center justify-start",
-        "h-12 min-w-0",
-        "p-2",
-        "rounded-sm",
-        "cursor-pointer",
-        "hover:border-2 hover:bg-zinc-100/50",
-        dev.border && "border border-yellow-500",
-      )}
-    >
-      <span className="truncate">MenuItemMenuItemMenuItemMenuItemMenuItem</span>
-    </li>
-  );
-});
+    <nav className={cn("relative", "w-full h-full flex flex-col", isDevBorder && "border border-red-700")}>
+      <SidebarToggle />
 
-function Sidebar({ ariaLabel }: Props) {
-  const dev = {
-    border: false,
-  };
+      <div className={cn(sectionClass, "border-b-2 border-r-2", isDevBorder && "border border-green-700")}>
+        <Link href="/dashboard" className="flex items-center justify-center gap-2">
+          <PanelsTopLeft className="size-6" />
 
-  const styles = {
-    headerHeight: "h-14",
-  };
-
-  return (
-    <nav className={cn("w-full h-full flex flex-col", dev.border && "border border-red-700")}>
-      <div
-        className={cn(
-          "flex",
-          "items-center justify-center",
-          styles.headerHeight,
-          "border-b-2 border-r-2",
-          dev.border && "border border-green-700",
-        )}
-      >
-        Header Sidebar
+          <h1
+            className={cn(
+              "font-bold text-lg whitespace-nowrap",
+              "transition-[transform,opacity,display] ease-linear duration-300",
+              getOpenState() ? "inline opacity-100" : "hidden opacity-0",
+            )}
+          >
+            Sidebar Header
+          </h1>
+        </Link>
       </div>
 
       <ScrollArea
@@ -60,22 +42,19 @@ function Sidebar({ ariaLabel }: Props) {
           "w-full min-h-0",
           "p-default",
           "border-r-2",
-          dev.border && "border border-yellow-700",
+          isDevBorder && "border border-yellow-700",
         )}
       >
-        {Menuitems}
+        <SidebarMenuItems />
       </ScrollArea>
 
-      <div
-        className={cn(
-          "flex",
-          "items-center justify-center",
-          styles.headerHeight,
-          "border-t-2 border-r-2",
-          dev.border && "border border-green-700",
-        )}
-      >
-        Footer Sidebar
+      <div className={cn(sectionClass, "border-t-2 border-r-2", isDevBorder && "border border-green-700")}>
+        <Button variant="ghost" className="flex items-center justify-center gap-2" onClick={() => alert("Logout")}>
+          <LogOut className="size-6 shrink-0" />
+          <SidebarLabel isOpen={getOpenState()} className="font-bold text-lg">
+            Logout
+          </SidebarLabel>
+        </Button>
       </div>
     </nav>
   );
