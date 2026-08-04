@@ -1,5 +1,6 @@
 "use client";
 
+import { Menu } from "@/features/menu";
 import { SidebarLabel, useSidebarStore, useStoreHydration } from "@/features/sidebar";
 import { cn } from "@/lib/utils";
 import { LucideIcon, SquareMenu } from "lucide-react";
@@ -19,7 +20,7 @@ const SidebarMenuItem = ({ isOpen, icon: Icon, label }: { isOpen: boolean; icon:
   );
 };
 
-const SidebarMenuItems = () => {
+const SidebarMenuItemsOld = () => {
   const isOpen = useStoreHydration(useSidebarStore, (state) => state.isOpen);
   if (isOpen === undefined) return null;
 
@@ -35,6 +36,10 @@ const SidebarMenuItems = () => {
       ))}
     </ul>
   );
+};
+
+const SidebarMenuItems = () => {
+  return <Menu />;
 };
 
 export default SidebarMenuItems;

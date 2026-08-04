@@ -12,9 +12,9 @@ import {
 } from "@/components/ui/breadcrumb";
 import Link from "next/link";
 
-export default function Dashboard() {
+export default function Posts() {
   return (
-    <ContentLayout title="Dashboard">
+    <ContentLayout title="All Posts">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -22,7 +22,11 @@ export default function Dashboard() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Dashboard</BreadcrumbPage>
+            <BreadcrumbLink render={<Link href="/dashboard">Dashboard</Link>}></BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>All Posts</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
