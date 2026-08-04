@@ -1,15 +1,12 @@
 "use client";
 
-import { useSidebarStore, useStoreHydration } from "@/features/sidebar";
+import { ContentLayout } from "@/components/layout";
+import PlaceholderContent from "@/components/placeholder-content";
 
 export default function Dashboard() {
-  const isOpen = useStoreHydration(useSidebarStore, (state) => state.isOpen);
-  if (isOpen === undefined) return null;
-
   return (
-    <div className="flex flex-col items-center justify-center">
-      <p>Dashboard</p>
-      <p> Sidebar status: {isOpen ? "OPEN" : "CLOSE"}</p>
-    </div>
+    <ContentLayout title="Dashboard">
+      <PlaceholderContent />
+    </ContentLayout>
   );
 }

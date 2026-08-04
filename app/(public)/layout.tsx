@@ -13,9 +13,7 @@ export default function PublicLayout({
   if (!sidebarStore) return null;
   const { getOpenState } = sidebarStore;
 
-  const dev = {
-    border: false,
-  };
+  const isDevBorder = false;
 
   const styles = {
     headerHeight: "h-14",
@@ -33,7 +31,7 @@ export default function PublicLayout({
           "w-80 h-screen",
           "transition-[width] ease-linear duration-300",
           getOpenState() ? styles.expandedWidth : styles.collapsedWidth,
-          dev.border && "border-3 border-red-900",
+          isDevBorder && "border-3 border-red-900",
         )}
       >
         <Sidebar />
@@ -43,40 +41,10 @@ export default function PublicLayout({
           "min-h-screen",
           "transition-[margin-left] ease-linear duration-300",
           getOpenState() ? styles.expandedMargin : styles.collapsedMargin,
-          dev.border && "border-3 border-blue-900",
+          isDevBorder && "border-3 border-blue-900",
         )}
       >
-        <header
-          className={cn(
-            "flex items-center justify-center",
-            styles.headerHeight,
-            "border-b-2",
-            dev.border && "border border-green-700",
-          )}
-        >
-          <Header />
-        </header>
-        <div
-          className={cn(
-            "flex flex-col",
-            "h-[calc(100vh-56px-56px)]",
-            "w-full",
-            "p-default",
-            dev.border && "border border-yellow-700",
-          )}
-        >
-          {children}
-        </div>
-        <footer
-          className={cn(
-            "flex items-center justify-center",
-            styles.headerHeight,
-            "border-t-2",
-            dev.border && "border border-green-700",
-          )}
-        >
-          <Footer />
-        </footer>
+        {children}
       </main>
     </>
   );
