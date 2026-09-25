@@ -5,6 +5,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { SidebarLabel, SidebarMenuItems, SidebarToggle, useSidebarStore, useStoreHydration } from "@/features/sidebar";
 import { cn } from "@/lib/utils";
 import { LogOut, PanelsTopLeft } from "lucide-react";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 
 function Sidebar() {
@@ -49,7 +50,15 @@ function Sidebar() {
       </ScrollArea>
 
       <div className={cn(sectionClass, "border-t-2 border-r-2", isDevBorder && "border border-green-700")}>
-        <Button variant="ghost" className="flex items-center justify-center gap-2" onClick={() => alert("Logout")}>
+        <Button
+          variant="ghost"
+          className="flex items-center justify-center gap-2"
+          onClick={() =>
+            signOut({
+              callbackUrl: "/",
+            })
+          }
+        >
           <LogOut className="size-6 shrink-0" />
           <SidebarLabel isOpen={getOpenState()} className="font-bold text-lg">
             Logout
