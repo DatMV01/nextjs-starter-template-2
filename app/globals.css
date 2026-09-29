@@ -1,10 +1,10 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --spacing-default: 1rem;
@@ -125,7 +125,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 ;
+    @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground transition-colors duration-500;
@@ -134,6 +134,6 @@
     @apply font-sans;
   }
   button {
-    @apply cursor-pointer
+    @apply cursor-pointer;
   }
 }

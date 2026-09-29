@@ -1,7 +1,9 @@
-"use client";
+'use client';
 
-import { ContentLayout } from "@/components/layout";
-import PlaceholderContent from "@/components/placeholder-content";
+import Link from 'next/link';
+
+import { ContentLayout } from '@/components/layout';
+import PlaceholderContent from '@/components/placeholder-content';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,8 +11,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import Link from "next/link";
+} from '@/components/ui/breadcrumb';
 
 export default function Dashboard() {
   return (
@@ -18,7 +19,9 @@ export default function Dashboard() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink render={<Link href="/">Home</Link>}></BreadcrumbLink>
+            <BreadcrumbLink
+              render={<Link href="/">Home</Link>}
+            ></BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

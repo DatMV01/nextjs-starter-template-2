@@ -1,6 +1,6 @@
-import Header from "./header";
-import Sidebar from "./sidebar";
-import Footer from "./footer";
-import ContentLayout from "./layout-content";
+import Footer from './footer';
+import Header from './header';
+import ContentLayout from './layout-content';
+import Sidebar from './sidebar';
 
-export { Header, Sidebar, Footer, ContentLayout };
+export { ContentLayout, Footer, Header, Sidebar };

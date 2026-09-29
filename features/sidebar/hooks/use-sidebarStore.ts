@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { create } from "zustand";
-import { createJSONStorage, devtools, persist } from "zustand/middleware";
-import { immer } from "zustand/middleware/immer";
+import { create } from 'zustand';
+import { createJSONStorage, devtools, persist } from 'zustand/middleware';
+import { immer } from 'zustand/middleware/immer';
 
 type SidebarSettings = { disabled: boolean; isHoverOpen: boolean };
 
@@ -48,7 +48,9 @@ export const useSidebarStore = create<SidebarStore>()(
 
         getOpenState: () => {
           const { isOpen, isHover, settings } = get();
-          return !settings.disabled && (isOpen || (settings.isHoverOpen && isHover));
+          return (
+            !settings.disabled && (isOpen || (settings.isHoverOpen && isHover))
+          );
         },
 
         setSettings: (settings: Partial<SidebarSettings>) => {
@@ -62,10 +64,10 @@ export const useSidebarStore = create<SidebarStore>()(
           // );
         },
       })),
-      { name: "sidebar" }, // Display name on Redux DevTools
+      { name: 'sidebar' }, // Display name on Redux DevTools
     ),
     {
-      name: "sidebar",
+      name: 'sidebar',
       storage: createJSONStorage(() => localStorage),
       skipHydration: true,
     },

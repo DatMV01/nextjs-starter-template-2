@@ -1,18 +1,22 @@
-import { Ellipsis } from "lucide-react";
-import { MenuItem } from "./menu-item";
-import { MenuGroupProps } from "./type";
-import { usePathname } from "next/navigation";
+import { Ellipsis } from 'lucide-react';
 
-export function MenuGroup({ group, isOpen }: MenuGroupProps & { isOpen: boolean }) {
+import { MenuItem } from './menu-item';
+import { MenuGroupProps } from './type';
 
-    return (
+export function MenuGroup({
+  group,
+  isOpen,
+}: MenuGroupProps & { isOpen: boolean }) {
+  return (
     <section className="space-y-2">
       {group.groupLabel &&
-        group.groupLabel != "" &&
+        group.groupLabel != '' &&
         (isOpen ? (
-          <h2 className="px-3 text-xs font-semibold uppercase text-muted-foreground">{group.groupLabel}</h2>
+          <h2 className="text-muted-foreground px-3 text-xs font-semibold uppercase">
+            {group.groupLabel}
+          </h2>
         ) : (
-          <div className="w-full flex justify-center items-center">
+          <div className="flex w-full items-center justify-center">
             <Ellipsis className="size-6" />
           </div>
         ))}

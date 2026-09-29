@@ -1,6 +1,4 @@
-import { LucideIcon } from "lucide-react";
-
-
+import { LucideIcon } from 'lucide-react';
 
 type MenuItemProps = {
   menu: Menu;
@@ -25,4 +23,4 @@ type MenuGroupProps = {
   };
 };
 
-export type { MenuGroupProps ,MenuItemProps};
+export type { MenuGroupProps, MenuItemProps };

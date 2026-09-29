@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Props {
   ariaLabel?: string;
 }
@@ -10,7 +8,7 @@ function Footer({ ariaLabel }: Props) {
   };
 
   const styles = {
-    headerHeight: "h-14",
+    headerHeight: 'h-14',
   };
   return <div>Footer</div>;
 }

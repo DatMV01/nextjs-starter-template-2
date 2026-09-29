@@ -1,58 +1,65 @@
-import { Bookmark, LayoutGrid, Settings, SquarePen, Tag, Users } from "lucide-react";
+import {
+  Bookmark,
+  LayoutGrid,
+  Settings,
+  SquarePen,
+  Tag,
+  Users,
+} from 'lucide-react';
 
 export const menuGroups = [
   {
-    groupLabel: "",
+    groupLabel: '',
     menus: [
       {
-        href: "/dashboard",
-        label: "Dashboard",
+        href: '/dashboard',
+        label: 'Dashboard',
         icon: LayoutGrid,
         submenus: [],
       },
     ],
   },
   {
-    groupLabel: "Contents",
+    groupLabel: 'Contents',
     menus: [
       {
-        href: "",
-        label: "Posts",
+        href: '',
+        label: 'Posts',
         icon: SquarePen,
         submenus: [
           {
-            href: "/posts",
-            label: "All Posts",
+            href: '/posts',
+            label: 'All Posts',
           },
           {
-            href: "/posts/new",
-            label: "New Post",
+            href: '/posts/new',
+            label: 'New Post',
           },
         ],
       },
       {
-        href: "/categories",
-        label: "Categories",
+        href: '/categories',
+        label: 'Categories',
         icon: Bookmark,
       },
       {
-        href: "/tags",
-        label: "Tags",
+        href: '/tags',
+        label: 'Tags',
         icon: Tag,
       },
     ],
   },
   {
-    groupLabel: "Settings",
+    groupLabel: 'Settings',
     menus: [
       {
-        href: "/users",
-        label: "Users",
+        href: '/users',
+        label: 'Users',
         icon: Users,
       },
       {
-        href: "/account",
-        label: "Account",
+        href: '/account',
+        label: 'Account',
         icon: Settings,
       },
     ],

@@ -2,7 +2,7 @@
 
 ## Tailwind classname order
 
-1. **Position**   absolute fixed relative | top right bottom left | z-index
+1. **Position** absolute fixed relative | top right bottom left | z-index
 2. **Display / Layout** block flex grid inline-flex
 3. **Flex/Grid** items-* justify-* gap-*
 4. **Size** w-* h-* size-*

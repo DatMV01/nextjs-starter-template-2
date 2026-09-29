@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import { useSyncExternalStore } from "react";
-import type { StoreApi, UseBoundStore } from "zustand";
+import { useSyncExternalStore } from 'react';
+
+import type { StoreApi, UseBoundStore } from 'zustand';
 
 /**
  * A custom hook for safety reading a Zustand store during generics T and F

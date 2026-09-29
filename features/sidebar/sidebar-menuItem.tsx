@@ -1,20 +1,33 @@
-"use client";
+'use client';
 
-import { Menu } from "@/features/menu";
-import { SidebarLabel, useSidebarStore, useStoreHydration } from "@/features/sidebar";
-import { cn } from "@/lib/utils";
-import { LucideIcon, SquareMenu } from "lucide-react";
+import { Menu } from '@/features/menu';
+import {
+  SidebarLabel,
+  useSidebarStore,
+  useStoreHydration,
+} from '@/features/sidebar';
+import { LucideIcon, SquareMenu } from 'lucide-react';
 
-const SidebarMenuItem = ({ isOpen, icon: Icon, label }: { isOpen: boolean; icon: LucideIcon; label: string }) => {
+import { cn } from '@/lib/utils';
+
+const SidebarMenuItem = ({
+  isOpen,
+  icon: Icon,
+  label,
+}: {
+  isOpen: boolean;
+  icon: LucideIcon;
+  label: string;
+}) => {
   return (
     <li
       className={cn(
-        "flex items-center justify-start gap-2",
-        "h-12 min-w-0 p-2 rounded-sm cursor-pointer",
-        "border-2 border-transparent hover:bg-zinc-100/50 hover:border-zinc-300 transition-colors",
+        'flex items-center justify-start gap-2',
+        'h-12 min-w-0 cursor-pointer rounded-sm p-2',
+        'border-2 border-transparent transition-colors hover:border-zinc-300 hover:bg-zinc-100/50',
       )}
     >
-      <Icon className="size-6 shrink-0 " />
+      <Icon className="size-6 shrink-0" />
       <SidebarLabel isOpen={isOpen}>{label}</SidebarLabel>
     </li>
   );

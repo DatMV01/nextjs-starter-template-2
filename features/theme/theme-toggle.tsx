@@ -1,10 +1,14 @@
-"use client";
+'use client';
 
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { useHydrated } from "./hooks/useHydrated";
+import { useTheme } from 'next-themes';
+
+import { Moon, Sun } from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+
+import { cn } from '@/lib/utils';
+
+import { useHydrated } from './hooks/useHydrated';
 
 export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -12,31 +16,31 @@ export default function ThemeToggle() {
   const hydrated = useHydrated();
   if (!hydrated) return null;
 
-  const isDark = resolvedTheme === "dark";
+  const isDark = resolvedTheme === 'dark';
 
   return (
     <Button
       variant="outline"
-      className="cursor-pointer size-10 p-0"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="size-10 cursor-pointer p-0"
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
       aria-label="Toggle theme"
     >
       <div className="relative flex h-full w-full items-center justify-center">
         <Moon
           className={cn(
-            "absolute size-6 transition-all duration-300",
+            'absolute size-6 transition-all duration-300',
             isDark
-              ? "rotate-0 scale-100 opacity-100"
-              : "-rotate-90 scale-0 opacity-0 pointer-events-none"
+              ? 'scale-100 rotate-0 opacity-100'
+              : 'pointer-events-none scale-0 -rotate-90 opacity-0',
           )}
         />
 
         <Sun
           className={cn(
-            "absolute size-6 transition-all duration-300",
+            'absolute size-6 transition-all duration-300',
             isDark
-              ? "rotate-90 scale-0 opacity-0 pointer-events-none"
-              : "rotate-0 scale-100 opacity-100"
+              ? 'pointer-events-none scale-0 rotate-90 opacity-0'
+              : 'scale-100 rotate-0 opacity-100',
           )}
         />
       </div>
